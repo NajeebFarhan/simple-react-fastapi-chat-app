@@ -35,4 +35,4 @@ async def websocket(ws: WebSocket):
                 
     except WebSocketDisconnect:
         manager.disconnect(ws)
-        await manager.broadcast({ "username": "system", "msg": "someone has left the chat" })
+        await manager.broadcast({ "username": "system", "msg": f"{username} has left the chat" })
