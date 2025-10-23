@@ -1,19 +1,25 @@
-import { useState } from "react"
-import ChatRoom from "./ChatRoom"
-import Login from "./Login"
+import { useState } from "react";
+import Login from "./pages/Login";
+import Chat from "./pages/Chat";
 
 function App() {
-      const [username, setUsername] = useState("")
-      const [isLogged, setIsLogged] = useState(false)
+  const [username, setUsername] = useState("");
+  const [color, setColor] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
 
   return (
     <>
-    { isLogged ?
-      <ChatRoom username={username}/> :
-      <Login setUsername={setUsername} setIsLogged={setIsLogged}/>
-    }
+      {isLogged ? (
+        <Chat username={username} color={color} />
+      ) : (
+        <Login
+          setUsername={setUsername}
+          setColor={setColor}
+          setIsLogged={setIsLogged}
+        />
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
